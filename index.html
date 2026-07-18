@@ -14,6 +14,10 @@
     .feature-icon { transition: transform 0.3s ease; }
     .fade-in { animation: fadeIn 0.6s ease-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .zoomable { cursor: zoom-in; }
+    .lightbox { display:none; position:fixed; inset:0; z-index:100; background:rgba(0,0,0,0.85); backdrop-filter:blur(4px); align-items:center; justify-content:center; cursor:zoom-out; padding:2rem; }
+    .lightbox.active { display:flex; }
+    .lightbox img { max-width:95vw; max-height:90vh; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,0.5); }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -128,7 +132,7 @@
           </ul>
         </div>
         <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200">
-          <img src="images/app-screenshot.png" alt="Hosts 管理界面" class="rounded-xl w-full h-auto shadow-sm">
+          <img src="images/app-screenshot.png" alt="Hosts 管理界面" class="zoomable rounded-xl w-full h-auto shadow-sm" onclick="openLightbox(this.src)">
         </div>
       </div>
     </div>
@@ -139,7 +143,7 @@
     <div class="max-w-5xl mx-auto px-6 py-24">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="order-2 md:order-1 bg-gray-50 rounded-2xl p-4 border border-gray-200">
-          <img src="images/app-proxy.png" alt="HTTP 代理界面" class="rounded-xl w-full h-auto shadow-sm">
+          <img src="images/app-proxy.png" alt="HTTP 代理界面" class="zoomable rounded-xl w-full h-auto shadow-sm" onclick="openLightbox(this.src)">
         </div>
         <div class="order-1 md:order-2">
           <div class="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm mb-4">
@@ -180,7 +184,7 @@
           </ul>
         </div>
         <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200">
-          <img src="images/app-history.png" alt="操作历史界面" class="rounded-xl w-full h-auto shadow-sm">
+          <img src="images/app-history.png" alt="操作历史界面" class="zoomable rounded-xl w-full h-auto shadow-sm" onclick="openLightbox(this.src)">
         </div>
       </div>
     </div>
@@ -278,6 +282,11 @@
     </div>
   </section>
 
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="放大预览">
+  </div>
+
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-400 py-10">
     <div class="max-w-5xl mx-auto px-6 text-center text-sm">
@@ -285,5 +294,20 @@
       <p class="text-gray-500">© 2025 SwHosts. 基于 Wails + Go + Vue 构建。</p>
     </div>
   </footer>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
 </body>
 </html>
