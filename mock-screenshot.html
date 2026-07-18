@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwHosts Screenshot</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    .app {
+      width: 1100px;
+      height: 680px;
+      background: #f3f4f6;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      height: 48px;
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 20px;
+    }
+    .logo { font-weight: 700; color: #2563eb; font-size: 16px; }
+    .tab { font-size: 14px; color: #2563eb; font-weight: 500; border-bottom: 2px solid #2563eb; height: 100%; display: flex; align-items: center; }
+    .tab-inactive { font-size: 14px; color: #6b7280; height: 100%; display: flex; align-items: center; }
+    .status { margin-left: auto; display: flex; align-items: center; gap: 16px; font-size: 12px; color: #6b7280; }
+    .status-item { display: flex; align-items: center; gap: 6px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .dot-green { background: #22c55e; }
+    .dot-gray { background: #d1d5db; }
+    .main { flex: 1; display: flex; overflow: hidden; }
+    .sidebar {
+      width: 260px;
+      background: white;
+      border-right: 1px solid #e5e7eb;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+    }
+    .search {
+      height: 32px;
+      background: #f3f4f6;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      color: #9ca3af;
+      font-size: 12px;
+    }
+    .folder {
+      background: #eff6ff;
+      border-left: 3px solid #2563eb;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .folder-icon { color: #f59e0b; font-size: 14px; }
+    .folder-name { flex: 1; font-size: 14px; font-weight: 600; color: #374151; }
+    .folder-count { font-size: 12px; color: #9ca3af; }
+    .toggle {
+      width: 32px;
+      height: 16px;
+      background: #22c55e;
+      border-radius: 9999px;
+      position: relative;
+    }
+    .toggle::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: white;
+      border-radius: 50%;
+      top: 2px;
+      right: 2px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .scheme {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px 8px 36px;
+      border-radius: 6px;
+      margin-bottom: 4px;
+      background: #eff6ff;
+      border-left: 3px solid #2563eb;
+    }
+    .scheme-icon { color: #3b82f6; font-size: 14px; }
+    .scheme-name { flex: 1; font-size: 13px; color: #1f2937; }
+    .content {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      padding: 20px;
+      flex: 1;
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+    .card-subtitle {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 20px;
+    }
+    .editor {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: "SF Mono", Monaco, monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #334155;
+      flex: 1;
+    }
+    .line { display: flex; gap: 8px; }
+    .ip { color: #059669; }
+    .comment { color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="header">
+      <div class="logo">SwHosts</div>
+      <div class="tab">HOSTS</div>
+      <div class="tab-inactive">代理</div>
+      <div class="tab-inactive">历史</div>
+      <div class="status">
+        <div class="status-item"><span class="dot dot-green"></span>1 个方案已应用</div>
+        <div class="status-item"><span class="dot dot-green"></span>HTTP 运行</div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="sidebar">
+        <div class="search">搜索方案...</div>
+        <div class="folder">
+          <span class="folder-icon">▾</span>
+          <span class="folder-name">开发项目</span>
+          <span class="folder-count">2</span>
+          <div class="toggle"></div>
+        </div>
+        <div class="scheme">
+          <span class="scheme-icon">◆</span>
+          <span class="scheme-name">测试环境</span>
+          <div class="toggle"></div>
+        </div>
+        <div class="scheme" style="background: transparent; border-color: transparent;">
+          <span class="scheme-icon" style="color: #a855f7;">◆</span>
+          <span class="scheme-name" style="color: #6b7280;">预发环境</span>
+          <div class="toggle" style="background: #d1d5db;"></div>
+        </div>
+        <div class="folder" style="background: transparent; border-color: transparent;">
+          <span class="folder-icon" style="color: #9ca3af;">▸</span>
+          <span class="folder-name" style="color: #6b7280;">个人项目</span>
+          <span class="folder-count">1</span>
+          <div class="toggle" style="background: #d1d5db;"></div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="card">
+          <div class="card-title">测试环境</div>
+          <div class="card-subtitle">本地方案 · 最后修改 2025-01-15 14:30</div>
+          <div class="editor">
+            <div class="line"><span class="comment"># 测试环境 hosts 配置</span></div>
+            <div class="line"><span class="ip">127.0.0.1</span> admin.example.test</div>
+            <div class="line"><span class="ip">127.0.0.1</span> api.example.test</div>
+            <div class="line"><span class="ip">127.0.0.1</span> www.example.test</div>
+            <div class="line"></div>
+            <div class="line"><span class="comment"># 本地开发服务</span></div>
+            <div class="line"><span class="ip">127.0.0.1</span> swhost.local</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

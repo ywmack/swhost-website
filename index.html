@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwHosts - 本地 hosts 管理工具</title>
+  <meta name="description" content="SwHosts 是一款简洁的本地 hosts 管理工具，支持方案分组、一键切换、HTTP 代理转发，帮助开发者高效管理本地开发环境。">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Hero -->
+  <header class="gradient-bg text-white">
+    <div class="max-w-5xl mx-auto px-6 py-20 md:py-28 text-center">
+      <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur rounded-full px-4 py-1.5 text-sm font-medium mb-6">
+        <span class="w-2 h-2 rounded-full bg-green-400"></span>
+        macOS / Windows / Linux
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">SwHosts</h1>
+      <p class="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto mb-10">
+        简洁高效的本地 hosts 管理工具<br class="hidden md:block">
+        一键切换环境，轻松管理多个开发域名
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://gitee.com/ywyoyo/swhost/releases" target="_blank"
+          class="bg-white text-blue-600 px-8 py-3.5 rounded-xl font-semibold text-lg hover:bg-blue-50 transition shadow-lg hover:shadow-xl">
+          免费下载
+        </a>
+        <a href="https://gitee.com/ywyoyo/swhost" target="_blank"
+          class="bg-white/10 text-white border border-white/30 px-8 py-3.5 rounded-xl font-semibold text-lg hover:bg-white/20 transition">
+          查看项目
+        </a>
+      </div>
+      <p class="text-sm text-blue-200 mt-4">无需注册，下载即用</p>
+    </div>
+  </header>
+
+  <!-- Screenshot -->
+  <section class="max-w-5xl mx-auto px-6 -mt-12 md:-mt-20">
+    <div class="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
+      <img src="images/app-screenshot.png" alt="SwHosts 主界面" class="w-full h-auto">
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="max-w-5xl mx-auto px-6 py-20">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">核心功能</h2>
+      <p class="text-gray-500">为本地开发场景设计的常用功能</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition">
+        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">hosts 方案管理</h3>
+        <p class="text-gray-500 text-sm">分组管理多个 hosts 方案，一键切换激活状态，自动写入系统 hosts 文件。</p>
+      </div>
+
+      <div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition">
+        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">一键切换</h3>
+        <p class="text-gray-500 text-sm">点击开关即可激活或关闭方案，实时生效，无需手动编辑 /etc/hosts。</p>
+      </div>
+
+      <div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition">
+        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">HTTP 代理转发</h3>
+        <p class="text-gray-500 text-sm">将本地域名请求转发到指定端口，支持自定义端口，前端开发调试更方便。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section class="bg-white border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-6 py-20">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">下载安装</h2>
+        <p class="text-gray-500">选择适合你系统的版本</p>
+      </div>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <a href="https://gitee.com/ywyoyo/swhost/releases" target="_blank"
+          class="flex items-center gap-4 p-5 rounded-xl border border-gray-200 hover:border-blue-400 hover:shadow-md transition">
+          <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.84-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-semibold">macOS</div>
+            <div class="text-sm text-gray-500">Apple Silicon / Intel</div>
+          </div>
+        </a>
+
+        <a href="https://gitee.com/ywyoyo/swhost/releases" target="_blank"
+          class="flex items-center gap-4 p-5 rounded-xl border border-gray-200 hover:border-blue-400 hover:shadow-md transition">
+          <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 5.5A2.5 2.5 0 015.5 3h13A2.5 2.5 0 0121 5.5v13a2.5 2.5 0 01-2.5 2.5h-13A2.5 2.5 0 013 18.5v-13zM5.5 5a.5.5 0 00-.5.5v13a.5.5 0 00.5.5h13a.5.5 0 00.5-.5v-13a.5.5 0 00-.5-.5h-13z"/>
+              <path d="M10 8h4v1.5h-4V8zm-2.5 3h9v1.5h-9V11zm0 3h9v1.5h-9V14z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-semibold">Windows</div>
+            <div class="text-sm text-gray-500">x64</div>
+          </div>
+        </a>
+
+        <a href="https://gitee.com/ywyoyo/swhost/releases" target="_blank"
+          class="flex items-center gap-4 p-5 rounded-xl border border-gray-200 hover:border-blue-400 hover:shadow-md transition">
+          <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.504 0c-6.947 0-12.504 5.584-12.504 12.496 0 5.12 3.089 9.51 7.5 11.441.548.101.748-.238.748-.529 0-.26-.009-.949-.015-1.864-3.003.653-3.637-1.449-3.637-1.449-.491-1.248-1.199-1.581-1.199-1.581-.98-.669.074-.656.074-.656 1.083.076 1.653 1.112 1.653 1.112.963 1.649 2.525 1.173 3.141.897.098-.697.377-1.173.685-1.443-2.397-.272-4.918-1.199-4.918-5.337 0-1.179.421-2.143 1.111-2.898-.111-.274-.482-1.374.106-2.864 0 0 .905-.29 2.965 1.106.86-.239 1.783-.358 2.7-.362.917.004 1.84.123 2.703.362 2.057-1.396 2.961-1.106 2.961-1.106.591 1.49.219 2.59.109 2.864.692.755 1.109 1.719 1.109 2.898 0 4.149-2.525 5.062-4.929 5.329.387.333.731.993.731 2.002 0 1.445-.013 2.61-.013 2.966 0 .292.197.633.755.526 4.405-1.934 7.492-6.323 7.492-11.44 0-6.912-5.561-12.496-12.504-12.496z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-semibold">Linux</div>
+            <div class="text-sm text-gray-500">x64 / ARM64</div>
+          </div>
+        </a>
+      </div>
+      <p class="text-center text-sm text-gray-400 mt-8">
+        macOS 用户如遇"无法验证开发者"，请右键 app 图标选择"打开"
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-8">
+    <div class="max-w-5xl mx-auto px-6 text-center text-sm">
+      <p>© 2025 SwHosts. 基于 Wails + Go + Vue 构建。</p>
+    </div>
+  </footer>
+</body>
+</html>
