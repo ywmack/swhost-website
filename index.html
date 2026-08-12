@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SwHosts - 本地 hosts 管理工具</title>
-  <meta name="description" content="SwHosts 是一款简洁的本地 hosts 管理工具，支持方案分组、一键切换、HTTP 代理转发、操作历史记录，帮助开发者高效管理本地开发环境。">
+  <title>SwHosts - 一站式 HOSTS 管理与反向代理工具</title>
+  <meta name="description" content="SwHosts 是一款面向开发者的桌面工具，将 HOSTS 文件管理和 HTTP 反向代理整合到一个应用中，支持方案管理、一键切换、代理转发、内置编辑器、操作历史记录，让本地开发调试更高效。">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
@@ -30,12 +30,12 @@
     <div class="relative max-w-5xl mx-auto px-6 py-20 md:py-28 text-center fade-in">
       <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur rounded-full px-4 py-1.5 text-sm font-medium mb-6">
         <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-        macOS / Windows
+        v0.1.4 Beta · macOS / Windows
       </div>
       <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">SwHosts</h1>
       <p class="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed">
-        简洁高效的本地 hosts 管理工具<br class="hidden md:block">
-        方案分组 · 一键切换 · 代理转发 · 操作历史
+        一站式 HOSTS 管理与反向代理工具<br class="hidden md:block">
+        让本地开发调试更高效
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="https://github.com/ywmack/swhost-website/releases" target="_blank"
@@ -78,8 +78,8 @@
   <!-- Features Overview -->
   <section class="max-w-5xl mx-auto px-6 py-24">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">软件亮点</h2>
-      <p class="text-gray-500 text-lg">专为本地开发场景设计，三大核心能力</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">核心功能</h2>
+      <p class="text-gray-500 text-lg">HOSTS 管理 + 反向代理 + 代码编辑器，三大核心能力合一</p>
     </div>
     <div class="grid md:grid-cols-3 gap-10">
       <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
@@ -88,8 +88,8 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
           </svg>
         </div>
-        <h3 class="text-xl font-bold mb-3 text-gray-900">Hosts 一键切换</h3>
-        <p class="text-gray-500 leading-relaxed">按项目分组管理多套 hosts 方案，点击开关即可切换环境。自动写入系统 hosts 文件，无需手动编辑，开发、测试、预发环境秒级切换。</p>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">HOSTS 方案管理</h3>
+        <p class="text-gray-500 leading-relaxed">创建多个 HOSTS 方案，支持本地编辑或远程 URL 拉取。一键激活/停用，自动写入系统 HOSTS 文件。拖拽排序、文件夹分组，远程方案支持定时自动刷新。</p>
       </div>
       <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
         <div class="feature-icon w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-200">
@@ -97,17 +97,17 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
           </svg>
         </div>
-        <h3 class="text-xl font-bold mb-3 text-gray-900">本地 HTTP 代理</h3>
-        <p class="text-gray-500 leading-relaxed">内置 HTTP 代理服务器，将本地域名请求智能转发到指定端口。前端开发调试时，无需配置 Nginx 或修改端口，域名直接映射到本地服务。</p>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">HTTP 反向代理</h3>
+        <p class="text-gray-500 leading-relaxed">内置 HTTP（80）和 HTTPS（443）反向代理，多条代理规则可独立启用/停用。代理访问日志实时查看，端口占用检测显示占用进程名和 PID。</p>
       </div>
       <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
         <div class="feature-icon w-14 h-14 bg-gradient-to-br from-violet-500 to-violet-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-violet-200">
           <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
           </svg>
         </div>
-        <h3 class="text-xl font-bold mb-3 text-gray-900">操作历史记录</h3>
-        <p class="text-gray-500 leading-relaxed">完整记录每一次 hosts 变更和代理操作，随时查看历史。切换了哪个方案、什么时候切换的，一目了然，排查问题不再靠记忆。</p>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">HOSTS 编辑器</h3>
+        <p class="text-gray-500 leading-relaxed">内置代码编辑器，行级颜色标识：绿色=正确、红色=有误、灰色=注释。快捷键 Cmd/Ctrl + / 快速注释，自动保存，修改后即时生效。</p>
       </div>
     </div>
   </section>
@@ -123,12 +123,12 @@
             </span>
             功能一
           </div>
-          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Hosts 方案管理与切换</h3>
-          <p class="text-gray-500 leading-relaxed mb-6">创建多个 hosts 方案，按项目或环境分组管理。只需点击开关，即可在不同环境间快速切换，自动写入系统 hosts 文件。</p>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">HOSTS 方案管理</h3>
+          <p class="text-gray-500 leading-relaxed mb-6">创建多个 HOSTS 方案，支持本地编辑和远程 URL 拉取。一键激活/停用，自动写入系统 HOSTS 文件。拖拽排序、文件夹分组，远程方案还支持定时自动刷新。</p>
           <ul class="space-y-3 text-sm text-gray-600">
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>支持分组管理（开发、测试、预发等）</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>一键开关切换，自动写入 /etc/hosts</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>内置语法高亮编辑器，hosts 格式实时校验</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>支持本地编辑 / 远程 URL 拉取两种方案来源</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>一键激活/停用，自动写入系统 HOSTS 文件</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>拖拽排序、文件夹分组，远程方案定时刷新</li>
           </ul>
         </div>
         <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200">
@@ -152,12 +152,12 @@
             </span>
             功能二
           </div>
-          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">本地 HTTP 代理转发</h3>
-          <p class="text-gray-500 leading-relaxed mb-6">内置轻量 HTTP 代理服务器，将 hosts 中配置的域名请求自动转发到本地开发端口，告别 Nginx 反向代理的繁琐配置。</p>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">HTTP 反向代理</h3>
+          <p class="text-gray-500 leading-relaxed mb-6">内置 HTTP（80）和 HTTPS（443）反向代理服务器，多条代理规则可独立启用/停用。代理访问日志实时查看，端口占用检测显示占用进程名和 PID，告别 Nginx/Caddy 的繁琐配置。</p>
           <ul class="space-y-3 text-sm text-gray-600">
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>域名自动映射到本地开发端口（如 3000、8080）</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>支持自定义端口，适配不同项目</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>一键启停，前端开发调试更高效</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>内置 HTTP/HTTPS 反向代理，无需额外安装 Nginx</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>代理访问日志实时查看，调试更方便</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>端口占用检测，显示占用进程名和 PID</li>
           </ul>
         </div>
       </div>
@@ -171,20 +171,88 @@
         <div>
           <div class="inline-flex items-center gap-2 text-violet-600 font-semibold text-sm mb-4">
             <span class="w-8 h-8 bg-violet-100 rounded-lg flex items-center justify-center">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
             </span>
             功能三
           </div>
-          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">操作历史记录</h3>
-          <p class="text-gray-500 leading-relaxed mb-6">每次 hosts 切换、代理操作都会被完整记录。什么时候切了哪个方案、改了什么内容，清晰可查，排查问题不再靠记忆。</p>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">HOSTS 编辑器</h3>
+          <p class="text-gray-500 leading-relaxed mb-6">内置代码编辑器，专为 HOSTS 文件优化。行级颜色标识让你一眼看清每条记录的状态，快捷键快速注释，修改自动保存，即时生效。</p>
           <ul class="space-y-3 text-sm text-gray-600">
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-violet-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>记录每次 hosts 方案切换时间和内容</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-violet-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>代理启停操作一目了然</li>
-            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-violet-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>快速回溯，避免"我刚才切了哪个？"</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-violet-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>行级颜色标识：绿色=正确、红色=有误、灰色=注释</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-violet-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>快捷键 Cmd/Ctrl + / 快速注释/取消注释</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-violet-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>自动保存，修改后即时生效</li>
           </ul>
         </div>
         <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200">
           <img src="images/app-history.png" alt="操作历史界面" class="zoomable rounded-xl w-full h-auto shadow-sm" onclick="openLightbox(this.src)">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Auxiliary Features -->
+  <section class="bg-gray-50 border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-6 py-24">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">更多实用功能</h2>
+        <p class="text-gray-500 text-lg">除了三大核心能力，还有这些贴心辅助</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-md transition">
+          <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <h4 class="font-bold text-gray-900 mb-2">全局搜索</h4>
+          <p class="text-sm text-gray-500">搜索所有方案中的域名、IP，模糊匹配快速定位</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-md transition">
+          <div class="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </div>
+          <h4 class="font-bold text-gray-900 mb-2">DNS 自动刷新</h4>
+          <p class="text-sm text-gray-500">修改 HOSTS 后自动刷新系统 DNS 缓存，无需手动操作</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-md transition">
+          <div class="w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h4 class="font-bold text-gray-900 mb-2">系统 HOSTS 查看</h4>
+          <p class="text-sm text-gray-500">查看和一键重置系统 HOSTS 文件，安全可控</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-md transition">
+          <div class="w-10 h-10 bg-violet-50 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h4 class="font-bold text-gray-900 mb-2">操作历史</h4>
+          <p class="text-sm text-gray-500">记录所有修改，支持回滚，变更清晰可追溯</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-md transition">
+          <div class="w-10 h-10 bg-rose-50 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"/></svg>
+          </div>
+          <h4 class="font-bold text-gray-900 mb-2">端口检测</h4>
+          <p class="text-sm text-gray-500">检测 80/443 端口占用，显示占用进程详情</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-md transition">
+          <div class="w-10 h-10 bg-cyan-50 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+          </div>
+          <h4 class="font-bold text-gray-900 mb-2">代理访问日志</h4>
+          <p class="text-sm text-gray-500">实时查看代理请求记录，方便调试排查问题</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-md transition">
+          <div class="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+          </div>
+          <h4 class="font-bold text-gray-900 mb-2">规则独立开关</h4>
+          <p class="text-sm text-gray-500">每条代理规则可独立启用/停用，灵活控制</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-md transition">
+          <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+          </div>
+          <h4 class="font-bold text-gray-900 mb-2">本地数据存储</h4>
+          <p class="text-sm text-gray-500">配置保存在本地 JSON 文件，方便备份迁移</p>
         </div>
       </div>
     </div>
@@ -282,6 +350,75 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-6 py-24">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">常见问题</h2>
+        <p class="text-gray-500 text-lg">关于 SwHosts 你可能想知道的</p>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-4">
+        <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-gray-900 hover:bg-gray-50 transition">
+            <span>为什么需要管理员权限？</span>
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 text-gray-500 text-sm leading-relaxed">修改系统 HOSTS 文件需要管理员权限，这是操作系统的安全限制。</div>
+        </details>
+        <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-gray-900 hover:bg-gray-50 transition">
+            <span>代理端口被占用怎么办？</span>
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 text-gray-500 text-sm leading-relaxed">SwHosts 会检测端口占用并显示占用进程。如果是本程序已在运行，无需处理；如果是其他程序，请先停止该程序或在设置中修改代理端口。</div>
+        </details>
+        <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-gray-900 hover:bg-gray-50 transition">
+            <span>关闭应用后 HOSTS 会恢复吗？</span>
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 text-gray-500 text-sm leading-relaxed">不会。HOSTS 修改是持久的，关闭应用后仍然生效。如需恢复，请手动编辑或切换到其他方案覆盖。</div>
+        </details>
+        <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-gray-900 hover:bg-gray-50 transition">
+            <span>如何备份配置？</span>
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 text-gray-500 text-sm leading-relaxed">复制配置文件即可：macOS 位于 <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs">~/Library/Application Support/SwHosts/config.json</code>，Windows 位于 <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs">%APPDATA%/SwHosts/config.json</code>。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Changelog -->
+  <section class="bg-white border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-6 py-24">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">更新日志</h2>
+        <p class="text-gray-500 text-lg">持续迭代，不断优化</p>
+      </div>
+      <div class="max-w-3xl mx-auto">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-20 text-right">
+            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded-full">v0.1.4</span>
+            <p class="text-xs text-gray-400 mt-2">2026-08-12</p>
+          </div>
+          <div class="flex-1 border-l-2 border-blue-200 pl-6 pb-2">
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">✨</span>代理开关添加「启动中/停用中」过渡状态</li>
+              <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">✨</span>代理访问日志功能</li>
+              <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">✨</span>代理规则启用/停用开关</li>
+              <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">✨</span>端口占用检测显示占用进程详情</li>
+              <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">✨</span>HOSTS 内容搜索功能</li>
+              <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">✨</span>HOSTS 编辑器注释快捷键</li>
+              <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">✨</span>代理规则输入优化</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Lightbox -->
   <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img" src="" alt="放大预览">
@@ -290,8 +427,8 @@
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-400 py-10">
     <div class="max-w-5xl mx-auto px-6 text-center text-sm">
-      <p class="mb-2">SwHosts — 本地 hosts 管理工具</p>
-      <p class="text-gray-500">© 2025 SwHosts. 基于 Wails + Go + Vue 构建。</p>
+      <p class="mb-2">SwHosts — 一站式 HOSTS 管理与反向代理工具</p>
+      <p class="text-gray-500">© 2026 SwHosts. 基于 Wails + Go + Vue 构建。MIT License</p>
     </div>
   </footer>
 
