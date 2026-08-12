@@ -64,13 +64,6 @@ SwHosts 是一款面向开发者的桌面工具，将 **HOSTS 文件管理** 和
 
 ## 四、技术信息
 
-### 技术栈
-- **后端**：Go 1.25+
-- **前端**：Vue 3 + TypeScript + Pinia
-- **框架**：[Wails v2](https://wails.io/)（Go + WebView 桌面应用框架）
-- **编辑器**：CodeMirror 6
-- **样式**：Tailwind CSS
-
 ### 支持系统
 
 | 操作系统 | 架构 |
@@ -154,14 +147,6 @@ A: 复制配置文件即可：macOS 位于 `~/Library/Application Support/SwHost
 - ✨ 代理规则输入优化
 
 ---
-
-## 十、素材清单
-
-| 素材 | 路径 |
-|------|------|
-| 应用图标 | `frontend/src/assets/images/app-icon.png` |
-| Logo | `frontend/src/assets/images/logo-universal.png` |
-| 应用截图 | `docs/images/app-screenshot.png` |
 
 
 
