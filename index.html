@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SwHosts - 一站式 HOSTS 管理与反向代理工具</title>
-  <meta name="description" content="SwHosts 是一款面向开发者的桌面工具，将 HOSTS 文件管理和 HTTP 反向代理整合到一个应用中，支持方案管理、一键切换、代理转发、内置编辑器、操作历史记录，让本地开发调试更高效。">
+  <meta name="description" content="SwHosts 是一款面向开发者的桌面工具，将 HOSTS 文件管理和 HTTP/HTTPS 反向代理整合到一个应用中，内置证书管理、方案管理、代理转发、代码编辑器，让本地开发调试更高效。">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
@@ -30,7 +30,7 @@
     <div class="relative max-w-5xl mx-auto px-6 py-20 md:py-28 text-center fade-in">
       <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur rounded-full px-4 py-1.5 text-sm font-medium mb-6">
         <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-        v0.1.6 Beta · macOS / Windows
+        v0.1.13 Beta · macOS / Windows
       </div>
       <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">SwHosts</h1>
       <p class="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -42,31 +42,14 @@
           class="bg-white text-blue-600 px-8 py-3.5 rounded-xl font-semibold text-lg hover:bg-blue-50 transition shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform">
           免费下载
         </a>
-        <button onclick="document.getElementById('source-modal').classList.remove('hidden')"
-          class="bg-white/10 text-white border border-white/30 px-8 py-3.5 rounded-xl font-semibold text-lg hover:bg-white/20 transition cursor-pointer">
+        <a href="https://gitee.com/ywyoyo/swhost" target="_blank"
+          class="bg-white/10 text-white border border-white/30 px-8 py-3.5 rounded-xl font-semibold text-lg hover:bg-white/20 transition">
           查看项目
-        </button>
+        </a>
       </div>
       <p class="text-sm text-blue-200 mt-4">无需注册，下载即用</p>
     </div>
   </header>
-
-  <!-- Source Modal -->
-  <div id="source-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm" onclick="if(event.target===this)this.classList.add('hidden')">
-    <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm mx-4 text-center">
-      <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-        <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-        </svg>
-      </div>
-      <h3 class="text-xl font-bold text-gray-900 mb-2">项目暂未开放</h3>
-      <p class="text-gray-500 text-sm mb-6">SwHosts 目前为个人使用工具，源代码暂未开源。你可以下载构建好的安装包直接使用。</p>
-      <button onclick="document.getElementById('source-modal').classList.add('hidden')"
-        class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-medium">
-        知道了
-      </button>
-    </div>
-  </div>
 
   <!-- Screenshot: Hosts 主界面 -->
   <section class="max-w-5xl mx-auto px-6 -mt-12 md:-mt-20 relative z-10">
@@ -79,9 +62,9 @@
   <section class="max-w-5xl mx-auto px-6 py-24">
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">核心功能</h2>
-      <p class="text-gray-500 text-lg">HOSTS 管理 + 反向代理 + 代码编辑器，三大核心能力合一</p>
+      <p class="text-gray-500 text-lg">HOSTS 管理 + 反向代理 + 证书管理 + 代码编辑器，四大核心能力合一</p>
     </div>
-    <div class="grid md:grid-cols-3 gap-10">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
       <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
         <div class="feature-icon w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-blue-200">
           <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -97,8 +80,17 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
           </svg>
         </div>
-        <h3 class="text-xl font-bold mb-3 text-gray-900">HTTP 反向代理</h3>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">HTTP/HTTPS 反向代理</h3>
         <p class="text-gray-500 leading-relaxed">内置 HTTP（80）和 HTTPS（443）反向代理，多条代理规则可独立启用/停用。代理访问日志实时查看，端口占用检测显示占用进程名和 PID。</p>
+      </div>
+      <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+        <div class="feature-icon w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-amber-200">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">证书管理</h3>
+        <p class="text-gray-500 leading-relaxed">HTTPS 代理配套证书管理：自动生成 CA 根证书和域名证书，支持安装到系统信任链。证书状态可视化，有效期、过期提醒一目了然。</p>
       </div>
       <div class="feature-card bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
         <div class="feature-icon w-14 h-14 bg-gradient-to-br from-violet-500 to-violet-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-violet-200">
@@ -164,6 +156,58 @@
     </div>
   </section>
 
+  <!-- Feature Detail: 证书管理 -->
+  <section class="bg-white border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-6 py-24">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 text-amber-600 font-semibold text-sm mb-4">
+            <span class="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </span>
+            功能三
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">证书管理</h3>
+          <p class="text-gray-500 leading-relaxed mb-6">HTTPS 代理配套完整的证书管理能力。自动生成 CA 根证书和域名证书，一键安装到系统信任链，证书状态、有效期清晰可视。</p>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>自动生成 CA 根证书，可安装到系统信任链</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>域名证书按需自动生成，支持手动创建、刷新、删除</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>证书状态可视化：有效期、过期提醒</li>
+            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>CA 证书安装/卸载，macOS 需管理员密码，Windows 自动安装</li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 border border-amber-100">
+          <div class="space-y-4">
+            <div class="bg-white rounded-xl p-4 border border-amber-100 shadow-sm">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                <span class="font-semibold text-sm text-gray-900">CA 根证书</span>
+                <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">已安装</span>
+              </div>
+              <p class="text-xs text-gray-500">SwHosts CA · 有效期至 2027-08-12</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 border border-amber-100 shadow-sm">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                <span class="font-semibold text-sm text-gray-900">api.example.test</span>
+                <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">有效</span>
+              </div>
+              <p class="text-xs text-gray-500">有效期至 2027-08-12</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 border border-amber-100 shadow-sm">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                <span class="font-semibold text-sm text-gray-900">admin.example.test</span>
+                <span class="ml-auto text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full">即将过期</span>
+              </div>
+              <p class="text-xs text-gray-500">有效期至 2026-09-01</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Feature Detail: 操作历史 -->
   <section class="bg-white border-t border-gray-100">
     <div class="max-w-5xl mx-auto px-6 py-24">
@@ -173,7 +217,7 @@
             <span class="w-8 h-8 bg-violet-100 rounded-lg flex items-center justify-center">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
             </span>
-            功能三
+            功能四
           </div>
           <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">HOSTS 编辑器</h3>
           <p class="text-gray-500 leading-relaxed mb-6">内置代码编辑器，专为 HOSTS 文件优化。行级颜色标识让你一眼看清每条记录的状态，快捷键快速注释，修改自动保存，即时生效。</p>
@@ -195,7 +239,7 @@
     <div class="max-w-5xl mx-auto px-6 py-24">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">更多实用功能</h2>
-        <p class="text-gray-500 text-lg">除了三大核心能力，还有这些贴心辅助</p>
+        <p class="text-gray-500 text-lg">除了四大核心能力，还有这些贴心辅助</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-md transition">
@@ -253,6 +297,13 @@
           </div>
           <h4 class="font-bold text-gray-900 mb-2">本地数据存储</h4>
           <p class="text-sm text-gray-500">配置保存在本地 JSON 文件，方便备份迁移</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-md transition">
+          <div class="w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/></svg>
+          </div>
+          <h4 class="font-bold text-gray-900 mb-2">本地证书管理</h4>
+          <p class="text-sm text-gray-500">CA 和域名证书全部存储在本地，可随时卸载清理</p>
         </div>
       </div>
     </div>
@@ -386,6 +437,20 @@
           </summary>
           <div class="px-5 pb-5 text-gray-500 text-sm leading-relaxed">复制配置文件即可：macOS 位于 <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs">~/Library/Application Support/SwHosts/config.json</code>，Windows 位于 <code class="bg-gray-100 px-1.5 py-0.5 rounded text-xs">%APPDATA%/SwHosts/config.json</code>。</div>
         </details>
+        <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-gray-900 hover:bg-gray-50 transition">
+            <span>CA 证书安装后安全吗？</span>
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 text-gray-500 text-sm leading-relaxed">CA 证书仅存储在本地，用于签发本地开发域名的证书。安装到系统信任链后，浏览器会信任这些证书。CA 可随时卸载，卸载后所有相关证书文件也会被清理。</div>
+        </details>
+        <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden">
+          <summary class="flex items-center justify-between p-5 cursor-pointer font-semibold text-gray-900 hover:bg-gray-50 transition">
+            <span>HTTPS 代理显示证书错误怎么办？</span>
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-5 pb-5 text-gray-500 text-sm leading-relaxed">请确认 CA 证书已安装到系统信任链。在「证书管理」面板查看 CA 状态，如显示「未安装」请点击安装按钮。macOS 需要输入管理员密码，Windows 会自动安装。</div>
+        </details>
       </div>
     </div>
   </section>
@@ -400,7 +465,7 @@
       <div class="max-w-3xl mx-auto">
         <div class="flex items-start gap-4">
           <div class="flex-shrink-0 w-20 text-right">
-            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded-full">v0.1.6</span>
+            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded-full">v0.1.13</span>
             <p class="text-xs text-gray-400 mt-2">2026-08-12</p>
           </div>
           <div class="flex-1 border-l-2 border-blue-200 pl-6 pb-2">
